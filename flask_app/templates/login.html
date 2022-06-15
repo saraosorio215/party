@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
+    <title>Login | Register</title>
+</head>
+<body>
+    <div class="center divider">
+        <div>
+            <h2 class="center">Login</h2>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p>{{message}}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <form action="/user/login/" method="post">
+                <p>
+                    <label>Username:</label>
+                    <input type="text" name="username" id="input-3">
+                </p>
+                <p>
+                    <label>Password:</label>
+                    <input type="password" name="password" id="input-3">
+                </p>
+                <p class="center">
+                    <input type="submit" value="Login" id="button">
+                </p>
+            </form>
+        </div>
+
+        <div class="divider">
+            <h2 class="center">Register</h2>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p>{{message}}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <form action="/user/register/" method="post">
+                <p>
+                    <label>Username:</label>
+                    <input type="text" name="username" id="input-3">
+                </p>
+                <p>
+                    <label>Password:</label>
+                    <input type="password" name="password" id="input-3">
+                </p>
+                <p>
+                    <label>Confirm PW:</label>
+                    <input type="password" name="conf_password" id="input-3">
+                </p>
+                <p class="center">
+                    <input type="submit" value="Register" id="button">
+                </p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

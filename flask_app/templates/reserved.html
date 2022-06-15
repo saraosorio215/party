@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
+    <title>Reserved</title>
+</head>
+<body>
+    <div class="center divider">
+        <div>
+            <h1>Thank you for your RSVP!</h1>
+            <h1>Gracias por su confirmación!</h1>
+        </div>
+        <div>
+            <img src="{{url_for('static',filename='img/ride.png')}}" alt="astronaut" id="balloons">
+        </div>
+        <div class="center marg-top-10">
+            <a href="/"><button id="button">Go Back</button></a>
+        </div>
+    </div>
+</body>
+</html>

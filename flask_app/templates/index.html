@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
+    <title>1 Trip Around the Sun</title>
+</head>
+<body>
+    {% if session["user_id"] %}
+        <a href="/dashboard/" class="center"><h3>Dashboard</h3></a>
+    {% endif %}
+    <div class="center divider">
+        <h2>Please join us in celebrating</h2>
+        <h1>Xavier's 1st Trip Around the Sun</h1>
+        <h2>23 July 2022 at 3pm</h2>
+    </div>
+    <div class="flex just-cent al-cent">
+        <div class="fixed">
+            <img src="{{url_for('static',filename='img/music.png')}}" alt="astronaut" id="astronaut">
+        </div>
+        <div class="center padding-5 marg-top-10">
+            <h2>Griffith Park</h2>
+            <h3>4730 Crystal Springs Dr</h3>
+            <h3 class="marg-bottom-10">Los Angeles, CA 90027</h3>
+            <h2>Follow the Planets</h2>
+            <img src="{{url_for('static',filename='img/planet.png')}}" alt="astronaut" id="planets">
+        </div>
+        <div class="absolute">
+            <img src="{{url_for('static',filename='img/astronaut.png')}}" alt="astronaut" id="astronaut">
+        </div>
+    </div>
+    <div class="center divider">
+        <div class="marg-bottom-10">
+            <h2>Please RSVP! Por favor confirme su asistencia!</h2>
+        </div>
+        <div>
+            <form action="/new/rsvp/" method="post">
+                <p class="marg-bottom-15">
+                    <label class="block"><h3 class="marg-bottom-5">Name of Family | Nómbre de Familia:</h3></label>
+                    <input type="text" name="name" id="input">
+                </p>
+                <p class="marg-bottom-15">
+                    <label class="block"><h3>Number of kids | Número de niños </h3><h3 class="marg-bottom-5">(10 & UNDER):</h3></label>
+                    <input type="number" name="num_kids" id="input-2">
+                </p>
+                <p class="marg-bottom-15">
+                    <label class="block"><h3>Number of adults | Número de adultos</h3><h3 class="block marg-bottom-5">(10 & UP):</h3></label>
+                    <input type="number" name="num_adults" id="input-2" class="marg-bottom-15">
+                </p>
+                <p class="center">
+                    <label class="block"><h3>Kid Names | Nombres de niños:</h3></label>
+                </p>
+                <p class="flex center">
+                    <div>
+                        <input type="text" name="kid_1" id="input-3" placeholder="Name of kid | Nombre de niño">
+                        <input type="text" name="kid_2" id="input-3" placeholder="Name of kid | Nombre de niño">
+                    </div>
+                    <div>
+                        <input type="text" name="kid_3" id="input-3" placeholder="Name of kid | Nombre de niño">
+                        <input type="text" name="kid_4" id="input-3" placeholder="Name of kid | Nombre de niño">
+                    </div>
+                </p>
+                <p class="marg-top-10">
+                    <input type="submit" value="RSVP" id="button">
+                </p>
+            </form>
+        </div>
+    </div>
+    <div class="flex al-cent just-cent divider">
+        <div class="gifts">
+            <div class="gifts-text">
+                <h2 class="center">Gifts | Regalos:</h2>
+                <h2>Clothing: 18m & up</h2>
+                <h2>Shoes: 4C & up</h2>
+            </div>
+        </div>
+        <div class="relative">
+            <img src="{{url_for('static',filename='img/balloons.png')}}" alt="astronaut" id="balloons">
+        </div>
+    </div>
+    <div class="flex just-cent divider">
+        <div>
+            <img src="{{url_for('static',filename='img/rocket.png')}}" alt="astronaut" id="balloons">
+        </div>
+        <div class="center">
+            <div class="marg-bottom-5">
+                <h2>Questions? | ¿Pregúntas?</h2>
+            </div>
+            <div class="marg-left-10">
+                <form action="/new/question/" method="post">
+                    <textarea cols="45" rows="5" name="q_text" id="question" placeholder="Type question here"></textarea>
+                    <div class="marg-top-10">
+                        <input type="submit" value="Post" id="button">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="flex column al-cent divider">
+        {% for quest in all_questions %}
+        <div class="marg-bottom-20">
+            <div class="blue-border">
+                <h3>{{quest.q_text}}</h3>
+            </div>
+            {% if quest.maker.r_text != None %}
+            <div class="border">
+                <h3>{{quest.maker.r_text}}</h3>
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
