@@ -90,7 +90,8 @@ def loginUser():
         "username": request.form["username"],
         "password" : request.form["password"]
         }
-    person = user.User.get_by_user(request.form["username"])
+    user_data = {"username" : request.form["username"]}
+    person = user.User.get_by_user(user_data)
     if not person:
         flash("Invalid Username!")
         return redirect("/login/")

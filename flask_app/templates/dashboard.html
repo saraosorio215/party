@@ -40,10 +40,10 @@
                     </tbody>
                 </table>
                 <div class="flex just-right quest">
-                    <h3>Adult Total: {{adult_total}}</h3>
-                    <h3 class="marg-left-10">Kid Total: {{kid_total}}</h3>
+                    <h3>Adults: {{adult_total}}</h3>
+                    <h3 class="marg-left-10">Kids: {{kid_total}}</h3>
                 </div>
-                <h3 class="center marg-top-10">Final Total: {{adult_total + kid_total}}</h3>
+                <h2 class="center marg-top-10">Final Total: {{adult_total + kid_total}}</h2>
             </div>
             <div class="center">
                 <h2 class="center marg-bottom-10">All Kid Names</h2>
@@ -55,7 +55,7 @@
             </div>
         </div>
         <div class="centered strict divider">
-            <h2 class="center  marg-bottom-10">Questions</h2>
+            <h2 class="center marg-bottom-10">Questions</h2>
             <hr />
             {% for quest in all_questions %}
             <div class="padding-5 marg-top-10 quest">
@@ -63,7 +63,6 @@
                     <p class="marg-bottom-5">{{quest.q_text}}</p>
                     <div class="flex">
                         <p id="sm-font">
-                            <a href="/edit/q/{{quest.id}}/" class="marg-right-5">Edit</a> | 
                             <a href="/delete/q/{{quest.id}}/">Delete</a>
                         </p>
                     </div>
@@ -83,12 +82,11 @@
             </div>
             {% endif %}
             {% if quest.maker.r_text != None %}
-            <div class="marg-bottom-10 marg-top-10 quest">
+            <div class="marg-bottom-10 marg-top-10 quest padding-5">
                 <h3 class="marg-bottom-5">Response:</h3>
                 <p class="marg-bottom-5">{{quest.maker.r_text}}</p>
                 <div class="flex">
                     <p id="sm-font">
-                        <a href="/edit/r/{{quest.maker.id}}/" class="marg-right-5">Edit</a> | 
                         <a href="/delete/r/{{quest.maker.id}}/">Delete</a>
                     </p>
                 </div>
