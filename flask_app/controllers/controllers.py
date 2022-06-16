@@ -90,8 +90,7 @@ def loginUser():
         "username": request.form["username"],
         "password" : request.form["password"]
         }
-    person = user.User.get_by_user(data['username'])
-    print(person)
+    person = user.User.get_by_user(request.form["username"])
     if not person:
         flash("Invalid Username!")
         return redirect("/login/")
@@ -99,4 +98,22 @@ def loginUser():
         flash("Invalid Login!")
         return redirect("/login/") 
     session["user_id"]= person.id
+    return redirect("/dashboard/")
+
+@app.route("/delete/q/<int:id>/")
+def deleteQ(id):
+    data = {"id" : id}
+    question.Question.delete_question(data)
+    return redirect("/dashboard/")
+
+@app.route("/edit/r/<int:id>/")
+def editR(id):
+    data = {"id" : id}
+    reply.Reply.find_reply(data)
+    return render_template("editreply.html")
+
+@app.route("/delete/r/<int:id>/")
+def deleteR(id):
+    data = {"id" : id}
+    reply.Reply.delete_reply(data)
     return redirect("/dashboard/")

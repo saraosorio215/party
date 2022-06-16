@@ -9,7 +9,7 @@ class User():
     def __init__(self, data):
         self.id = data['id']
         self.username = data['username']
-        self.password = ['password']
+        self.password = data['password']
 
 
     @classmethod
@@ -24,8 +24,8 @@ class User():
 
     @classmethod
     def get_by_user(cls, data):
-        query = "SELECT * FROM users WHERE username = %(username)s"
-        result = connectToMySQL("contact").query_db(query, data)
+        query = "SELECT * FROM users WHERE username = %(username)s;"
+        result = connectToMySQL("xbirthday").query_db(query, data)
         if result:
             return cls(result[0])
 

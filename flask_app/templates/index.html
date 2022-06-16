@@ -100,11 +100,15 @@
     </div>
     <div class="flex column al-cent divider">
         {% for quest in all_questions %}
-        <div class="marg-bottom-20">
+        <div class="flex al-cent">
+            <div class="marg-right-5"><h3>Q:</h3></div>
             <div class="blue-border">
                 <h3>{{quest.q_text}}</h3>
             </div>
+        </div>
+        <div class="marg-bottom-20 flex al-cent">
             {% if quest.maker.r_text != None %}
+            <div class="marg-right-5"><h3>A:</h3></div>
             <div class="border">
                 <h3>{{quest.maker.r_text}}</h3>
             </div>

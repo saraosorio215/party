@@ -8,79 +8,95 @@
     <title>X Party</title>
 </head>
 <body>
-    <div class="center divider">
-        <h1>Welcome</h1>
-    </div>
-    <div class="center marg-top-10">
-        <a href="/" class="block"><button id="button">Main Page</button></a>
-        <a href="/logout/">Logout</a>
-    </div>
-    <div class="flex sp-even">
-        <div>
-            <h2 class="center">All Reservations</h2>
-            <table class="center">
-                <thead>
-                    <tr>
-                        <th class="padding-5">Family Name</th>
-                        <th class="padding-5"># of Adults</th>
-                        <th class="padding-5"># of Kids</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for res in all_resv %}
-                    <tr>
-                        <td>{{res.name}}</td>
-                        <td>{{res.num_adults}}</td>
-                        <td>{{res.num_kids}}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-            <div class="flex just-right quest">
-                <h3>Adult Total: {{adult_total}}</h3>
-                <h3 class="marg-left-10">Kid Total: {{kid_total}}</h3>
-            </div>
-            <h3 class="center marg-top-10">Final Total: {{adult_total + kid_total}}</h3>
+    <div class="quest">
+        <div class="center divider">
+            <h1>Welcome</h1>
         </div>
-        <div class="center">
-            <h2 class="center marg-bottom-10">All Kid Names</h2>
-            {% for name in all_names %}
+        <div class="center marg-top-5 flex just-cent marg-bottom-10">
+            <p>
+                <a href="/">Main Page</a> | 
+                <a href="/logout/">Logout</a>
+            </p>
+        </div>
+        <div class="flex sp-even">
+            <div>
+                <h2 class="center">All Reservations</h2>
+                <table class="center">
+                    <thead>
+                        <tr>
+                            <th class="padding-5">Family Name</th>
+                            <th class="padding-5"># of Adults</th>
+                            <th class="padding-5"># of Kids</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for res in all_resv %}
+                        <tr>
+                            <td>{{res.name}}</td>
+                            <td>{{res.num_adults}}</td>
+                            <td>{{res.num_kids}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <div class="flex just-right quest">
+                    <h3>Adult Total: {{adult_total}}</h3>
+                    <h3 class="marg-left-10">Kid Total: {{kid_total}}</h3>
+                </div>
+                <h3 class="center marg-top-10">Final Total: {{adult_total + kid_total}}</h3>
+            </div>
+            <div class="center">
+                <h2 class="center marg-bottom-10">All Kid Names</h2>
+                {% for name in all_names %}
                 <div>
                     <h3>{{name}}</h3>
                 </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
         </div>
-    </div>
-    <div class="centered strict divider">
-        <h2 class="center  marg-bottom-10">Questions</h2>
-        <hr />
-        {% for quest in all_questions %}
+        <div class="centered strict divider">
+            <h2 class="center  marg-bottom-10">Questions</h2>
+            <hr />
+            {% for quest in all_questions %}
             <div class="padding-5 marg-top-10 quest">
-                <h3>Question:</h3>
-                <h3>{{quest.q_text}}</h3>
+                <h3 class="marg-bottom-5">Question:</h3>
+                    <p class="marg-bottom-5">{{quest.q_text}}</p>
+                    <div class="flex">
+                        <p id="sm-font">
+                            <a href="/edit/q/{{quest.id}}/" class="marg-right-5">Edit</a> | 
+                            <a href="/delete/q/{{quest.id}}/">Delete</a>
+                        </p>
+                    </div>
             </div>
             {% if quest.maker.r_text == None %}
-                <div class="center marg-top-10">
-                    <form action="/new/reply/" method="post">
-                        <p>
-                            <label><h3 class="marg-bottom-5">Response:</h3></label>
-                            <textarea cols="45" row="4" name="r_text" id="response"></textarea> 
-                        </p>
-                        <input type="hidden" name="question_id" value="{{quest.id}}">
-                        <p class="center marg-top-10 marg-bottom-10">
-                            <input type="submit" value="Post Reply" id="button">
-                        </p>
-                    </form>
-                </div>
+            <div class="center marg-top-10">
+                <form action="/new/reply/" method="post">
+                    <p>
+                        <label><h3 class="marg-bottom-5">Response:</h3></label>
+                        <textarea cols="45" row="4" name="r_text" id="response"></textarea> 
+                    </p>
+                    <input type="hidden" name="question_id" value="{{quest.id}}">
+                    <p class="center marg-top-10 marg-bottom-10">
+                        <input type="submit" value="Post Reply" id="button">
+                    </p>
+                </form>
+            </div>
             {% endif %}
             {% if quest.maker.r_text != None %}
-                <div class="marg-bottom-10 marg-top-10 quest">
-                    <h3>Response:</h3>
-                    <h4>{{quest.maker.r_text}}</h4>
+            <div class="marg-bottom-10 marg-top-10 quest">
+                <h3 class="marg-bottom-5">Response:</h3>
+                <p class="marg-bottom-5">{{quest.maker.r_text}}</p>
+                <div class="flex">
+                    <p id="sm-font">
+                        <a href="/edit/r/{{quest.maker.id}}/" class="marg-right-5">Edit</a> | 
+                        <a href="/delete/r/{{quest.maker.id}}/">Delete</a>
+                    </p>
                 </div>
+            </div>
             {% endif %}
             <hr />
-        {% endfor %}
+            {% endfor %}
+        </div>
     </div>
 </body>
 </html>

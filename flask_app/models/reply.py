@@ -8,6 +8,12 @@ class Reply():
         self.user_id = data['user_id']
         self.question_id = data['question_id']
 
+    @classmethod
+    def find_reply(cls, data):
+        query = "SELECT * FROM replies WHERE id = %(id)s;"
+        result = connectToMySQL("xbirthday").query_db(query, data)
+        if result:
+            return cls(result[0])
 
     @classmethod
     def add_reply(cls, data):

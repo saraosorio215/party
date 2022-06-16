@@ -20,6 +20,14 @@ tbody, #total, .total {
     background-color: #14324A;
 }
 
+a {
+    color: white;
+}
+
+#sm-font {
+    font-size: 12px;
+}
+
 .center {
     text-align: center;
 }
@@ -59,6 +67,10 @@ tbody, #total, .total {
 
 .marg-bottom-15 {
     margin-bottom: 15px;
+}
+
+.marg-right-5 {
+    margin-right: 5px;
 }
 
 .marg-left-10 {
@@ -205,5 +217,5 @@ tbody, #total, .total {
 }
 
 .strict {
-    width: 700px;
+    width: 55em;
 }
