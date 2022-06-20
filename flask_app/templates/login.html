@@ -18,7 +18,7 @@
                     {% endfor %}
                 {% endif %}
             {% endwith %}
-            <form action="/user/login/" method="post">
+            <form action="/user/login/" method="post" class="centered">
                 <p>
                     <label>Username:</label>
                     <input type="text" name="username" id="input-3">
@@ -32,8 +32,8 @@
                 </p>
             </form>
         </div>
-
-        <div class="divider">
+        <br />
+        <div class="marg-top-10">
             <h2 class="center">Register</h2>
             {% with messages = get_flashed_messages() %}
                 {% if messages %}
@@ -42,7 +42,7 @@
                     {% endfor %}
                 {% endif %}
             {% endwith %}
-            <form action="/user/register/" method="post">
+            <form action="/user/register/" method="post" class="centered">
                 <p>
                     <label>Username:</label>
                     <input type="text" name="username" id="input-3">

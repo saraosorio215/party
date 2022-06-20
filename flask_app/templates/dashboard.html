@@ -18,35 +18,35 @@
                 <a href="/logout/">Logout</a>
             </p>
         </div>
-        <div class="flex sp-even">
+        <div class="flex sp-even marg-bottom-10 marg-top-10">
             <div>
-                <h2 class="center">All Reservations</h2>
+                <h3 class="center">All Reservations</h3>
                 <table class="center">
                     <thead>
-                        <tr>
-                            <th class="padding-5">Family Name</th>
-                            <th class="padding-5"># of Adults</th>
-                            <th class="padding-5"># of Kids</th>
+                        <tr class="underlined">
+                            <th class="padding-5"><h5>Family</h5></th>
+                            <th class="padding-5"><h5>Adults</h5></th>
+                            <th class="padding-5"><h5>Kids</h5></th>
                         </tr>
                     </thead>
                     <tbody>
                         {% for res in all_resv %}
                         <tr>
-                            <td>{{res.name}}</td>
-                            <td>{{res.num_adults}}</td>
-                            <td>{{res.num_kids}}</td>
+                            <td class="padding-3">{{res.name}}</td>
+                            <td class="padding-3">{{res.num_adults}}</td>
+                            <td class="padding-3">{{res.num_kids}}</td>
                         </tr>
                         {% endfor %}
                     </tbody>
                 </table>
-                <div class="flex just-right quest">
+                <div class="flex just-cent quest marg-top-10">
                     <h3>Adults: {{adult_total}}</h3>
                     <h3 class="marg-left-10">Kids: {{kid_total}}</h3>
                 </div>
-                <h2 class="center marg-top-10">Final Total: {{adult_total + kid_total}}</h2>
+                <h2 class="center marg-top-10 total-border padding-3">Final Total: {{adult_total + kid_total}}</h2>
             </div>
             <div class="center">
-                <h2 class="center marg-bottom-10">All Kid Names + Sizes</h2>
+                <h3 class="center marg-bottom-10">Kid Names + Sizes</h3>
                 {% for name in all_names %}
                 <div>
                     <h3>{{name.capitalize()}}</h3>
@@ -54,11 +54,11 @@
                 {% endfor %}
             </div>
         </div>
-        <div class="centered strict divider">
-            <h2 class="center marg-bottom-10">Questions</h2>
+        <div class="divider">
+            <h2 class="center marg-bottom-5">Questions</h2>
             <hr />
             {% for quest in all_questions %}
-            <div class="padding-5 marg-top-10 quest">
+            <div class="padding-5 marg-top-10 quest marg-left-5 marg-right-5">
                 <h3 class="marg-bottom-5">Question:</h3>
                     <p class="marg-bottom-5">{{quest.q_text}}</p>
                     <div class="flex">
@@ -69,10 +69,10 @@
             </div>
             {% if quest.maker.r_text == None %}
             <div class="center marg-top-10">
-                <form action="/new/reply/" method="post">
+                <form action="/new/reply/" method="post" class="centered">
                     <p>
                         <label><h3 class="marg-bottom-5">Response:</h3></label>
-                        <textarea cols="45" row="4" name="r_text" id="response"></textarea> 
+                        <textarea cols="50" row="4" name="r_text" id="response"></textarea> 
                     </p>
                     <input type="hidden" name="question_id" value="{{quest.id}}">
                     <p class="center marg-top-10 marg-bottom-10">
@@ -82,7 +82,7 @@
             </div>
             {% endif %}
             {% if quest.maker.r_text != None %}
-            <div class="marg-bottom-10 marg-top-10 quest padding-5">
+            <div class="marg-bottom-10 marg-top-10 quest padding-5 marg-left-5 marg-right-5">
                 <h3 class="marg-bottom-5">Response:</h3>
                 <p class="marg-bottom-5">{{quest.maker.r_text}}</p>
                 <div class="flex">

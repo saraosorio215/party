@@ -35,7 +35,7 @@
             <h2>Please RSVP! Por favor confirme su asistencia!</h2>
         </div>
         <div>
-            <form action="/new/rsvp/" method="post">
+            <form action="/new/rsvp/" method="post" class="centered">
                 <p class="marg-bottom-15">
                     <label class="block"><h3 class="marg-bottom-5">Name of Family | Nómbre de Familia:</h3></label>
                     <input type="text" name="name" id="input">
@@ -53,7 +53,7 @@
                     <label class="block"><h3>Nombres de niños + Tamaño de camisa</h3></label>
                 </p>
                 <p>
-                    <div class="flex just-cent al-cent bottom-dotted centered">
+                    <div class="flex just-cent al-cent bottom-dotted">
                         <div>
                             <input type="text" name="kidname_1" id="input-3" placeholder="Name of kid | Nombre de niño">
                         </div>
@@ -64,7 +64,7 @@
                             <input type="text" name="kidsize_1" id="input-4" placeholder="Size|Tamaño">
                         </div>
                     </div>
-                    <div class="flex just-cent al-cent bottom-dotted centered">
+                    <div class="flex just-cent al-cent bottom-dotted">
                         <div>
                             <input type="text" name="kidname_2" id="input-3" placeholder="Name of kid | Nombre de niño">
                         </div>
@@ -75,42 +75,42 @@
                             <input type="text" name="kidsize_2" id="input-4" placeholder="Size|Tamaño">
                         </div>
                     </div>
-                </div>
-                <div>
-                    <div class="flex just-cent al-cent bottom-dotted centered">
-                        <div>
-                            <input type="text" name="kidname_3" id="input-3" placeholder="Name of kid | Nombre de niño">
+                    <div>
+                        <div class="flex just-cent al-cent bottom-dotted">
+                            <div>
+                                <input type="text" name="kidname_3" id="input-3" placeholder="Name of kid | Nombre de niño">
+                            </div>
+                            <div>
+                                <h1>+</h1>
+                            </div>
+                            <div>
+                                <input type="text" name="kidsize_3" id="input-4" placeholder="Size|Tamaño">
+                            </div>
                         </div>
-                        <div>
-                            <h1>+</h1>
+                        <div class="flex just-cent al-cent bottom-dotted">
+                            <div>
+                                <input type="text" name="kidname_4" id="input-3" placeholder="Name of kid | Nombre de niño">
+                            </div>
+                            <div>
+                                <h1>+</h1>
+                            </div>
+                            <div>
+                                <input type="text" name="kidsize_4" id="input-4" placeholder="Size|Tamaño">
+                            </div>
                         </div>
-                        <div>
-                            <input type="text" name="kidsize_3" id="input-4" placeholder="Size|Tamaño">
-                        </div>
-                    </div>
-                    <div class="flex just-cent al-cent centered">
-                        <div>
-                            <input type="text" name="kidname_4" id="input-3" placeholder="Name of kid | Nombre de niño">
-                        </div>
-                        <div>
-                            <h1>+</h1>
-                        </div>
-                        <div>
-                            <input type="text" name="kidsize_4" id="input-4" placeholder="Size|Tamaño">
-                        </div>
-                    </div>
-                </p>
-                <p class="marg-top-10">
-                    <input type="submit" value="RSVP" id="button">
-                </p>
-            </form>
+                    </p>
+                    <p class="marg-top-10">
+                        <input type="submit" value="RSVP" id="button">
+                    </p>
+                </form>
+            </div>
         </div>
     </div>
     <div class="flex al-cent just-cent divider">
         <div class="gifts">
             <div class="gifts-text">
                 <h2 class="center">Gifts | Regalos:</h2>
-                <h2>Clothing: 18m & up</h2>
+                <h2>Clothes: 18m & up</h2>
                 <h2>Shoes: 4C & up</h2>
             </div>
         </div>
@@ -122,11 +122,11 @@
         <div>
             <img src="{{url_for('static',filename='img/rocket.png')}}" alt="astronaut" id="balloons">
         </div>
-        <div class="center">
+        <div class="center marg-left-5 marg-right-10">
             <div class="marg-bottom-5">
-                <h2>Questions? | ¿Pregúntas?</h2>
+                <h2 id="resp-text">Questions? | ¿Pregúntas?</h2>
             </div>
-            <div class="marg-left-10">
+            <div>
                 <form action="/new/question/" method="post">
                     <textarea cols="45" rows="5" name="q_text" id="question" placeholder="Type question here"></textarea>
                     <div class="marg-top-10">
@@ -136,7 +136,7 @@
             </div>
         </div>
     </div>
-    <div class="flex column al-cent divider">
+    <div class="flex column al-cent divider marg-left-5 marg-right-5">
         {% for quest in all_questions %}
         <div class="flex al-cent">
             <div class="marg-right-5"><h3>Q:</h3></div>

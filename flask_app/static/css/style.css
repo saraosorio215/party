@@ -9,6 +9,7 @@ body {
     background-position: top;
     background-attachment: fixed;
     color: white;
+    width: 100%;
 }
 
 thead {
@@ -39,6 +40,10 @@ a {
 .relative {
     position: relative;
     right: 2%;
+}
+
+.padding-3 {
+    padding: 3px;
 }
 
 .padding-5 {
@@ -75,6 +80,14 @@ a {
 
 .marg-right-5 {
     margin-right: 5px;
+}
+
+.marg-right-10 {
+    margin-right: 10px;
+}
+
+.marg-left-5 {
+    margin-left: 5px;
 }
 
 .marg-left-10 {
@@ -125,13 +138,13 @@ a {
 }
 
 #astronaut {
-    height: 150px; 
+    height: 10em; 
     width: auto;
     background-color: rgba(240, 248, 255, 0);
 }
 
 #balloons {
-    height: 180px;
+    height: 13em;
     width: auto;
 }
 
@@ -173,24 +186,27 @@ a {
     cursor: pointer;
 }
 
+form {
+    width: fit-content;
+}
+
 #question {
     padding: 5px;
     resize: none;
-    width: 23em;
+    width: 55vw;
 }
 
 #response {
     resize: none;
-    width: 30em;
 }
 
 .gifts {
     background-image: url("/static/img/cloud.png");
-    background-size: 280px;
+    background-size: 20em;
     background-position: center;
     background-repeat: no-repeat;
     height: 100%;
-    padding: 59px 43px;
+    padding: 5em 3em;
     color: #14324A;
 }
 
@@ -199,21 +215,23 @@ a {
     left: 5.5%;
 }
 
+.border, .blue-border {
+    width: 26em;
+    padding: 5px 5px 5px 10px;
+    overflow-wrap: normal;
+
+}
+
 .border {
     border-left: 2px solid white;
     border-right: 2px solid white;
     border-bottom: 2px solid white;
-    width: 35em;
-    padding: 5px 5px 5px 10px;
-    overflow-wrap: normal;
     background-color: rgba(255, 255, 255, 0.559);
     color: #14324A;
 }
 
 .blue-border {
     border: 2px solid white;
-    width: 35em;
-    padding: 5px 5px 5px 10px;
     background-color: #14324A;
 }
 
@@ -230,12 +248,22 @@ a {
     flex-direction: column;
 }
 
-.strict {
-    width: 55em;
+.fit-cont {
+    width: fit-content;
 }
 
-/* .rsvp {
-    border: 2px solid white;
-    width: fit-content;
-    background-color: rgba(255, 255, 255, 0.276);
-} */
+#resp-text {
+    font-size: 1.2em;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+.underlined {
+    border-bottom: 1px solid white;
+}
+
+.total-border {
+    border: 1px solid white;
+}
