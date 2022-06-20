@@ -45,10 +45,14 @@ def newRsvp():
         "name" : request.form["name"],
         "num_kids" : request.form["num_kids"],
         "num_adults" : request.form["num_adults"],
-        "kid_1" : request.form["kid_1"],
-        "kid_2" : request.form["kid_2"],
-        "kid_3" : request.form["kid_3"],
-        "kid_4" : request.form["kid_4"]
+        "kidname_1" : request.form["kidname_1"],
+        "kidname_2" : request.form["kidname_2"],
+        "kidname_3" : request.form["kidname_3"],
+        "kidname_4" : request.form["kidname_4"],
+        "kidsize_1" : request.form["kidsize_1"],
+        "kidsize_2" : request.form["kidsize_2"],
+        "kidsize_3" : request.form["kidsize_3"],
+        "kidsize_4" : request.form["kidsize_4"]
     }
     reservation.Reservation.add_res(data)
     return redirect("/reserved/")

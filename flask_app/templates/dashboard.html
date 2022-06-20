@@ -46,10 +46,10 @@
                 <h2 class="center marg-top-10">Final Total: {{adult_total + kid_total}}</h2>
             </div>
             <div class="center">
-                <h2 class="center marg-bottom-10">All Kid Names</h2>
+                <h2 class="center marg-bottom-10">All Kid Names + Sizes</h2>
                 {% for name in all_names %}
                 <div>
-                    <h3>{{name}}</h3>
+                    <h3>{{name.capitalize()}}</h3>
                 </div>
                 {% endfor %}
             </div>

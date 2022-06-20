@@ -142,7 +142,7 @@ a {
     border-radius: 0px 0px 25px 0px;
 }
 
-#input, #input-2, #input-3 {
+#input, #input-2, #input-3, #input-4 {
     border: none;
     height: 20px;
 }
@@ -158,7 +158,13 @@ a {
 #input-3 {
     width: 16em;
     padding-left: 5px;
-    margin: 5px 10px 10px 10px;
+    margin: 10px;
+}
+
+#input-4 {
+    width: 6.3em;
+    padding-left: 2px;
+    margin: 10px;
 }
 
 #button {
@@ -209,6 +215,11 @@ a {
     width: 35em;
     padding: 5px 5px 5px 10px;
     background-color: #14324A;
+}
+
+.bottom-dotted {
+    border-bottom: 2px ridge white;
+    width: fit-content;
 }
 
 .quest {

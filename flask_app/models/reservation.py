@@ -7,10 +7,14 @@ class Reservation():
         self.name = data['name']
         self.num_adults = data['num_adults']
         self.num_kids = data['num_kids']
-        self.kid_1 = data["kid_1"]
-        self.kid_2 = data["kid_2"]
-        self.kid_3 = data["kid_3"]
-        self.kid_4 = data["kid_4"]
+        self.kidname_1 = data["kidname_1"]
+        self.kidname_2 = data["kidname_2"]
+        self.kidname_3 = data["kidname_3"]
+        self.kidname_4 = data["kidname_4"]
+        self.kidsize_1 = data["kidsize_1"]
+        self.kidsize_2 = data["kidsize_2"]
+        self.kidsize_3 = data["kidsize_3"]
+        self.kidsize_4 = data["kidsize_4"]
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
 
@@ -26,14 +30,14 @@ class Reservation():
         result = connectToMySQL("xbirthday").query_db(query)
         allKids = []
         for i in result:
-            if i["kid_1"] != "":
-                allKids.append(i["kid_1"])
-            if i["kid_2"] != "":
-                allKids.append(i["kid_2"])
-            if i["kid_3"] != "":
-                allKids.append(i["kid_3"])
-            if i["kid_4"] != "":
-                allKids.append(i["kid_4"])
+            if i["kidname_1"] != "":
+                allKids.append(i["kidname_1"] + " : " + i["kidsize_1"])
+            if i["kidname_2"] != "":
+                allKids.append(i["kidname_2"] + " : " + i["kidsize_2"])
+            if i["kidname_3"] != "":
+                allKids.append(i["kidname_3"] + " : " + i["kidsize_3"])
+            if i["kidname_4"] != "":
+                allKids.append(i["kidname_4"] + " : " + i["kidsize_4"])
         allKids.sort()
         return allKids
 
@@ -64,7 +68,7 @@ class Reservation():
 
     @classmethod
     def add_res(cls, data):
-        query = "INSERT INTO reservations (name, num_adults, num_kids, kid_1, kid_2, kid_3, kid_4) VALUES (%(name)s, %(num_adults)s, %(num_kids)s, %(kid_1)s, %(kid_2)s, %(kid_3)s, %(kid_4)s);"
+        query = "INSERT INTO reservations (name, num_adults, num_kids, kidname_1, kidname_2, kidname_3, kidname_4, kidsize_1, kidsize_2, kidsize_3, kidsize_4) VALUES (%(name)s, %(num_adults)s, %(num_kids)s, %(kidname_1)s, %(kidname_2)s, %(kidname_3)s, %(kidname_4)s, %(kidsize_1)s, %(kidsize_2)s, %(kidsize_3)s, %(kidsize_4)s);"
         return connectToMySQL("xbirthday").query_db(query, data)
 
     @classmethod

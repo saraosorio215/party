@@ -17,17 +17,16 @@
         <h2>23 July 2022 at 3pm</h2>
     </div>
     <div class="flex just-cent al-cent">
-        <div class="fixed">
+        <div>
             <img src="{{url_for('static',filename='img/music.png')}}" alt="astronaut" id="astronaut">
         </div>
-        <div class="center padding-5 marg-top-10">
+        <div class="center padding-5">
             <h2>Griffith Park</h2>
-            <h3>4730 Crystal Springs Dr</h3>
+            <h3>5426 Zoo Dr</h3>
             <h3 class="marg-bottom-10">Los Angeles, CA 90027</h3>
-            <h2>Follow the Planets</h2>
-            <img src="{{url_for('static',filename='img/planet.png')}}" alt="astronaut" id="planets">
+            <a href="http://www.google.com/maps/place/34.1557595955573,-118.30450513852222" target="_blank">Google Map Directions</a>
         </div>
-        <div class="absolute">
+        <div>
             <img src="{{url_for('static',filename='img/astronaut.png')}}" alt="astronaut" id="astronaut">
         </div>
     </div>
@@ -50,16 +49,55 @@
                     <input type="number" name="num_adults" id="input-2" class="marg-bottom-15">
                 </p>
                 <p class="center">
-                    <label class="block"><h3>Kid Names | Nombres de niños:</h3></label>
+                    <label class="block"><h3>Kid Name + Shirt Size</h3></label>
+                    <label class="block"><h3>Nombres de niños + Tamaño de camisa</h3></label>
                 </p>
-                <p class="flex center">
-                    <div>
-                        <input type="text" name="kid_1" id="input-3" placeholder="Name of kid | Nombre de niño">
-                        <input type="text" name="kid_2" id="input-3" placeholder="Name of kid | Nombre de niño">
+                <p>
+                    <div class="flex just-cent al-cent bottom-dotted centered">
+                        <div>
+                            <input type="text" name="kidname_1" id="input-3" placeholder="Name of kid | Nombre de niño">
+                        </div>
+                        <div>
+                            <h1>+</h1>
+                        </div>
+                        <div>
+                            <input type="text" name="kidsize_1" id="input-4" placeholder="Size|Tamaño">
+                        </div>
                     </div>
-                    <div>
-                        <input type="text" name="kid_3" id="input-3" placeholder="Name of kid | Nombre de niño">
-                        <input type="text" name="kid_4" id="input-3" placeholder="Name of kid | Nombre de niño">
+                    <div class="flex just-cent al-cent bottom-dotted centered">
+                        <div>
+                            <input type="text" name="kidname_2" id="input-3" placeholder="Name of kid | Nombre de niño">
+                        </div>
+                        <div>
+                            <h1>+</h1>
+                        </div>
+                        <div>
+                            <input type="text" name="kidsize_2" id="input-4" placeholder="Size|Tamaño">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="flex just-cent al-cent bottom-dotted centered">
+                        <div>
+                            <input type="text" name="kidname_3" id="input-3" placeholder="Name of kid | Nombre de niño">
+                        </div>
+                        <div>
+                            <h1>+</h1>
+                        </div>
+                        <div>
+                            <input type="text" name="kidsize_3" id="input-4" placeholder="Size|Tamaño">
+                        </div>
+                    </div>
+                    <div class="flex just-cent al-cent centered">
+                        <div>
+                            <input type="text" name="kidname_4" id="input-3" placeholder="Name of kid | Nombre de niño">
+                        </div>
+                        <div>
+                            <h1>+</h1>
+                        </div>
+                        <div>
+                            <input type="text" name="kidsize_4" id="input-4" placeholder="Size|Tamaño">
+                        </div>
                     </div>
                 </p>
                 <p class="marg-top-10">
