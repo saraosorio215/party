@@ -32,34 +32,6 @@
                 </p>
             </form>
         </div>
-        <br />
-        <div class="marg-top-10">
-            <h2 class="center">Register</h2>
-            {% with messages = get_flashed_messages() %}
-                {% if messages %}
-                    {% for message in messages %}
-                        <p>{{message}}</p>
-                    {% endfor %}
-                {% endif %}
-            {% endwith %}
-            <form action="/user/register/" method="post" class="centered">
-                <p>
-                    <label>Username:</label>
-                    <input type="text" name="username" id="input-3">
-                </p>
-                <p>
-                    <label>Password:</label>
-                    <input type="password" name="password" id="input-3">
-                </p>
-                <p>
-                    <label>Confirm PW:</label>
-                    <input type="password" name="conf_password" id="input-3">
-                </p>
-                <p class="center">
-                    <input type="submit" value="Register" id="button">
-                </p>
-            </form>
-        </div>
     </div>
 </body>
 </html>

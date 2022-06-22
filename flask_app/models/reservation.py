@@ -1,5 +1,6 @@
 from flask_app.config.mysqlconnection import connectToMySQL
 from flask_app import app
+from flask import flash
 
 class Reservation():
     def __init__(self, data):
@@ -75,3 +76,17 @@ class Reservation():
     def delete_res(cls, data):
         query = "DELETE FROM reservations WHERE id = %(id)s;"
         return connectToMySQL("xbirthday").query_db(query, data)
+
+    @staticmethod
+    def validate_class(data):
+        is_valid = True
+        if len(data["name"]) <=1:
+            is_valid = False
+            flash("Enter name | Entre nombre")
+        if (data["num_kids"]) is '':
+            is_valid = False
+            flash("Enter number of kids | Entre numero de niños")
+        if (data["num_adults"]) is '':
+            is_valid = False
+            flash("Enter number of adults | Entre numero de adultos")
+        return is_valid

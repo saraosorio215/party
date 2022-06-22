@@ -271,3 +271,7 @@ table {
 .total-border {
     border: 1px solid white;
 }
+
+.red {
+    color: red;
+}

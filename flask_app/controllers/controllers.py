@@ -41,21 +41,23 @@ def logout():
 
 @app.route("/new/rsvp/", methods=['POST'])
 def newRsvp():
-    data = {
-        "name" : request.form["name"],
-        "num_kids" : request.form["num_kids"],
-        "num_adults" : request.form["num_adults"],
-        "kidname_1" : request.form["kidname_1"],
-        "kidname_2" : request.form["kidname_2"],
-        "kidname_3" : request.form["kidname_3"],
-        "kidname_4" : request.form["kidname_4"],
-        "kidsize_1" : request.form["kidsize_1"],
-        "kidsize_2" : request.form["kidsize_2"],
-        "kidsize_3" : request.form["kidsize_3"],
-        "kidsize_4" : request.form["kidsize_4"]
-    }
-    reservation.Reservation.add_res(data)
-    return redirect("/reserved/")
+    if reservation.Reservation.validate_class(request.form):
+        data = {
+            "name" : request.form["name"],
+            "num_kids" : request.form["num_kids"],
+            "num_adults" : request.form["num_adults"],
+            "kidname_1" : request.form["kidname_1"],
+            "kidname_2" : request.form["kidname_2"],
+            "kidname_3" : request.form["kidname_3"],
+            "kidname_4" : request.form["kidname_4"],
+            "kidsize_1" : request.form["kidsize_1"],
+            "kidsize_2" : request.form["kidsize_2"],
+            "kidsize_3" : request.form["kidsize_3"],
+            "kidsize_4" : request.form["kidsize_4"]
+        }
+        reservation.Reservation.add_res(data)
+        return redirect("/reserved/")
+    return redirect("/")
 
 @app.route("/new/question/", methods=['POST'])
 def newQ():
