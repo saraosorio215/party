@@ -83,10 +83,10 @@ class Reservation():
         if len(data["name"]) <=1:
             is_valid = False
             flash("Enter name | Entre nombre")
-        if (data["num_kids"]) is '':
+        if (data["num_kids"]) == '':
             is_valid = False
             flash("Enter number of kids | Entre numero de niños")
-        if (data["num_adults"]) is '':
+        if (data["num_adults"]) == '':
             is_valid = False
             flash("Enter number of adults | Entre numero de adultos")
         return is_valid
